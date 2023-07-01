@@ -4,11 +4,13 @@ const init = async () => {
     const server = Hapi.server({
         port: 5000,
         host: 'localhost',
+        // same origin policy
         routes: {
             cors: {
                 origin: ['*'],
             },
         },
+        // end of same origin policy
     });
 
     server.route(routes);
