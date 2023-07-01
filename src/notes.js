@@ -1,3 +1,3 @@
-const notes = [];
+const notes = []; // menampung catatan
 
 module.exports = notes;
