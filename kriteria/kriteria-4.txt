@@ -1,0 +1,19 @@
+Kriteria 4 - Web Server dapat menghapus catatan
+
+Kriteria terakhir adalah web server harus bisa menghapus catatan. 
+Untuk menghapus catatan, client akan membuat permintaan pada path ‘/notes/{id}’ dengan method ‘DELETE’. 
+Ketika permintaan tersebut berhasil, maka server harus mengembalikan status code 200 (ok) 
+serta data JSON berikut:
+{
+  "status": "success",
+  "message": "Catatan berhasil dihapus"
+}
+
+Catatan yang dihapus harus sesuai dengan id catatan yang digunakan client pada path parameter. 
+Bila id catatan tidak ditemukan, maka server harus mengembalikan respons dengan status code 404 
+dan membawa data JSON berikut:
+
+{
+    "status": "fail",
+    "message": "Catatan gagal dihapus. Id tidak ditemukan"
+}

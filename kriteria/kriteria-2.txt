@@ -1,0 +1,75 @@
+Kriteria 2 - Web Server dapat menampilkan catatan
+
+Kriteria selanjutnya adalah web server dapat menampilkan catatan. 
+Kriteria ini mengharuskan web server untuk mengirimkan seluruh atau secara spesifik 
+data notes yang disimpan.
+
+Ketika client melakukan permintaan pada path ‘/notes’ dengan method ‘GET’, 
+maka server harus mengembalikan status code 200 (ok) 
+serta seluruh data notes dalam bentuk array menggunakan JSON. Contohnya seperti ini:
+{
+  "status": "success",
+  "data": {
+    "notes": [
+      {
+        "id":"notes-V1StGXR8_Z5jdHi6B-myT",
+        "title":"Catatan 1",
+        "createdAt":"2020-12-23T23:00:09.686Z",
+        "updatedAt":"2020-12-23T23:00:09.686Z",
+        "tags":[
+          "Tag 1",
+          "Tag 2"
+        ],
+        "body":"Isi dari catatan 1"
+      },
+      {
+        "id":"notes-V1StGXR8_98apmLk3mm1",
+        "title":"Catatan 2",
+        "createdAt":"2020-12-23T23:00:09.686Z",
+        "updatedAt":"2020-12-23T23:00:09.686Z",
+        "tags":[
+          "Tag 1",
+          "Tag 2"
+        ],
+        "body":"Isi dari catatan 2"
+      }
+    ]
+  }
+}
+
+Jika belum ada catatan satu pun pada array, 
+server bisa mengembalikan data notes dengan nilai array kosong seperti ini:
+{
+  "status": "success",
+  "data": {
+    "notes": []
+  }
+}
+
+Selain itu, client juga bisa melakukan permintaan untuk mendapatkan catatan secara spesifik 
+menggunakan id melalui path ‘/notes/{id}’ dengan method ‘GET’. 
+Server harus mengembalikan status code 200 (ok) 
+serta nilai satu objek catatan dalam bentuk JSON seperti berikut:
+{
+  "status": "success",
+  "data": {
+    "note": {
+      "id":"notes-V1StGXR8_Z5jdHi6B-myT",
+      "title":"Catatan 1",
+      "createdAt":"2020-12-23T23:00:09.686Z",
+      "updatedAt":"2020-12-23T23:00:09.686Z",
+      "tags":[
+        "Tag 1",
+        "Tag 2"
+      ],
+      "body":"Isi dari catatan 1"
+    }
+  }
+}
+
+Bila client melampirkan id catatan yang tidak ditemukan, 
+server harus merespons dengan status code 404, dan data dalam bentuk JSON seperti ini:
+{
+  "status": "fail",
+  "message": "Catatan tidak ditemukan"
+}
