@@ -1,1 +1,1 @@
-console.log('Halo kita akan membuat restfull api')
+console.log('Halo kita akan membuat restfull api');
