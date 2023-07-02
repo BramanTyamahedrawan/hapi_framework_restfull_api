@@ -1,4 +1,4 @@
-const {
+const { // import handler yang dibutuhkan
     addNoteHandler,
     getAllNotesHandler,
     getNoteByIdHandler,
@@ -6,6 +6,7 @@ const {
     deleteNoteByIdHandler,
 } = require("./handler");
 
+// export routes
 const routes = [{
         // method untuk membuat catatan baru
         method: 'POST',
@@ -38,4 +39,4 @@ const routes = [{
     }
 ];
 
-module.exports = routes;
+module.exports = routes; // export routes agar dapat digunakan di file lain
